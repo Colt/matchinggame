@@ -1,0 +1,118 @@
+// Cards Animations by Animate.css: http://daneden.github.io/animate.css/
+$background: #FF9090;
+$deck-background: linear-gradient(160deg, #02CCBA 0%, #AA7ECD 100%);
+$card-background:  #2e3d49;
+$card_opend-background: #02b3e4;
+$card_match-background: #02ccba;
+$card_notmatch-background:  #f95c3c;
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	color: #2e3d49;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: #FFF;
+	overflow: hidden;
+	font-family: 'Coda', cursive;
+}
+
+h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	padding-top: 10px;
+}
+
+.deck {
+	width: 690px;
+	margin: 0 auto;
+	background: $deck-background;
+	padding: 32px;
+	border-radius: 10px;
+	box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.5);
+	
+	.card {
+		height: 150px;
+		width: 150px;
+		background: $card-background;
+		display: inline-block;
+		margin: 0 30px 30px 0;
+		line-height: 280px;
+		font-size: 0;
+		color: #ffffff;
+		text-align: center;
+		border-radius: 8px;
+		vertical-align: top;
+		cursor: pointer;
+		transform: rotateY(180deg);
+		transform-style: preserve-3d;
+		transition: transform .3s ease;
+		font-family: FontAwesome;
+		line-height: 150px;
+
+		&:nth-child(4n) {
+			margin: 0 0 15px 0;
+		}
+
+		&:nth-child(n+13) {
+			margin: 0 30px 0 0;
+
+			&:nth-child(4n) {
+				margin: 0;
+			}
+		}
+
+		&.open {
+			transform: rotateY(0);
+			background: $card_opend-background;
+			cursor: default;
+		}
+		&.show {
+			font-size: 33px;
+		}
+
+		&.match {
+			transform: rotateY(0);
+			cursor: default;
+			background: $card_match-background;
+			font-size: 33px;
+		}
+
+		&.notmatch {
+			background: $card_notmatch-background;
+		}
+	}
+}
+#score-panel {
+	text-align: left;
+	width: 345px;
+	margin-bottom: 10px;
+	
+	.stars {
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+		margin: 0 5px 0 0;
+		
+		li {
+			list-style: none;
+			display: inline-block;
+		}
+	}
+	.restart {
+		float: right;
+		cursor: pointer;
+	}
+}
+*::selection {
+	background: transparent;
+}
+
+.swal2-overlay {
+	background-color: rgba(255,255,255,1);
+}
